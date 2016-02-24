@@ -10,9 +10,6 @@ completed the initial setup, you won't have to recall any docker commands. :smil
 Nightwatch serves as the testrunner. It is automatically provisioned in the
  `nightwatch` docker image, which you can easily customize in the included `nightwatch.json` file.
 
-This project is available as a docker image [on docker hub](https://hub.docker.com/r/mycargus/docker-grid-nightwatch/).
-
-
 ### Dependencies (Mac OSX)
 
 1. [dinghy](https://github.com/codekitchen/dinghy)  <--- You'll love it!!
