@@ -55,8 +55,7 @@ $ npm stop
 ### Can I view the Selenium grid console?
 
 Yep! After having started the Selenium hub and nodes (`$ npm start`), open a
-browser and go to [http://selenium.hub.quiz.docker](http://selenium.hub.quiz.docker), then
-click the 'console' link.
+browser and go to [http://selenium.hub.docker](http://selenium.hub.docker), then click the 'console' link.
 
 ### A test is failing. How do I debug it?
 
@@ -67,12 +66,12 @@ $ npm run debug_start
 
 View the chrome debug node via VNC (password: `secret`):
 ```sh
-$ open vnc://debug.chrome.quiz.docker
+$ open vnc://node.chrome.debug.docker
 ```
 
 View the firefox debug node via VNC (password: `secret`):
 ```sh
-$ open vnc://debug.firefox.quiz.docker
+$ open vnc://node.firefox.debug.docker
 ```
 
 Next execute the Nightwatch tests against the debug nodes:

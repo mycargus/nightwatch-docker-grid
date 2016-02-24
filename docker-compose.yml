@@ -17,7 +17,7 @@ nightwatch:
 hub:
   image: selenium/hub:latest
   environment:
-    VIRTUAL_HOST: selenium.hub.quiz.docker
+    VIRTUAL_HOST: selenium.hub.docker
   ports:
     - 4444:4444
 
@@ -25,21 +25,21 @@ hub:
 node-firefox:
   image: selenium/node-firefox:latest
   environment:
-    VIRTUAL_HOST: firefox.quiz.docker
+    VIRTUAL_HOST: node.firefox.docker
   links:
     - hub
 
 node-chrome:
   image: selenium/node-chrome:latest
   environment:
-    VIRTUAL_HOST: chrome.quiz.docker
+    VIRTUAL_HOST: node.chrome.docker
   links:
     - hub
 
 node-chrome-debug:
   image: selenium/node-chrome-debug:latest
   environment:
-    VIRTUAL_HOST: debug.chrome.quiz.docker
+    VIRTUAL_HOST: node.chrome.debug.docker
   ports:
     - 5900:5900
   links:
@@ -49,7 +49,7 @@ node-chrome-debug:
 node-firefox-debug:
   image: selenium/node-firefox-debug:latest
   environment:
-    VIRTUAL_HOST: debug.firefox.quiz.docker
+    VIRTUAL_HOST: node.firefox.debug.docker
   ports:
     - 5901:5900
   links:
