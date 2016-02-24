@@ -1,0 +1,37 @@
+{
+  "src_folders" : ["tests/."],
+  "test_settings" : {
+    "default" : {
+      "launch_url": "http://app.under.test", // this url needs to match the VIRTUAL_HOST environment variable defined for the docker "web" image
+      "selenium_host"  : "hub",
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      },
+      "screenshots" : {
+        "enabled" : true,
+        "on_failure" : true,
+        "path" : "tests_output/"
+      }
+    },
+    "node-chrome" : {
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      }
+    },
+    "node-firefox" : {
+      "desiredCapabilities": {
+        "browserName": "firefox"
+      }
+    },
+    "node-chrome-debug" : {
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      }
+    },
+    "node-firefox-debug" : {
+      "desiredCapabilities": {
+        "browserName": "firefox"
+      }
+    }
+  }
+}

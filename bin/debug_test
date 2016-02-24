@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Useful for debugging failing tests
+
+docker-compose run --rm nightwatch npm run debug

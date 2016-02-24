@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Builds the nightwatch docker image
+
+docker-compose build nightwatch

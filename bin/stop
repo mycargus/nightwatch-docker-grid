@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Stops and removes docker containers
+
+docker-compose stop && docker-compose rm -vf

@@ -1,0 +1,56 @@
+web:
+  image: app-under-test:latest
+  environment:
+    VIRTUAL_HOST: app.under.test
+
+nightwatch:
+  build: .
+  dockerfile: Dockerfile
+  environment:
+    NODE_ENV: test
+  volumes:
+    - .:/usr/src/app
+  links:
+    - web
+    - hub
+
+hub:
+  image: selenium/hub:latest
+  environment:
+    VIRTUAL_HOST: selenium.hub.quiz.docker
+  ports:
+    - 4444:4444
+
+# TODO: specify FF version to ensure compatibility with Selenium
+node-firefox:
+  image: selenium/node-firefox:latest
+  environment:
+    VIRTUAL_HOST: firefox.quiz.docker
+  links:
+    - hub
+
+node-chrome:
+  image: selenium/node-chrome:latest
+  environment:
+    VIRTUAL_HOST: chrome.quiz.docker
+  links:
+    - hub
+
+node-chrome-debug:
+  image: selenium/node-chrome-debug:latest
+  environment:
+    VIRTUAL_HOST: debug.chrome.quiz.docker
+  ports:
+    - 5900:5900
+  links:
+    - hub
+
+# TODO: specify FF version to ensure compatibility with Selenium
+node-firefox-debug:
+  image: selenium/node-firefox-debug:latest
+  environment:
+    VIRTUAL_HOST: debug.firefox.quiz.docker
+  ports:
+    - 5901:5900
+  links:
+    - hub
