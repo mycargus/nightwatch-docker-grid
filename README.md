@@ -18,7 +18,9 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 
 ### Setup
 
-Add the docker image of the app under test to the `docker-compose.yml` file. Be sure to define its virtual URL (a default is provided). For example:
+First you need to copy this repo to your machine.
+
+Now add the docker image of the app under test to the `docker-compose.yml` file. Be sure to define its virtual URL (a default is provided). For example:
 ``` 
 web:
   image: app-under-test:latest
@@ -29,6 +31,8 @@ web:
 That was easy!
 
 NOTE: `VIRTUAL_HOST` is your app's URL against which Nightwatch will execute the tests. It can be whatever you want. If you change it, be sure to replace the launch_url value located in the `nightwatch.json` file.
+
+If you're not sure how to create or pull a docker image, I recommend working through the official Docker tutorial located on their website.
 
 ### How do I execute the tests?
 
