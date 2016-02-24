@@ -15,10 +15,7 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 The following instructions are for Mac OSX users.
 
 1. [dinghy](https://github.com/codekitchen/dinghy)  <--- You'll love it!!
-2. docker-compose:
-```sh
-$ brew install docker-compose
-```
+2. docker-compose: `$ brew install docker-compose`
 3. a docker image of the app under test
 
 ### Setup
@@ -37,22 +34,22 @@ NOTE: `VIRTUAL_HOST` is your app's URL against which Nightwatch will execute the
 
 ### How do I execute the tests?
 
-1. Start dinghy if it isn't already running:
+Start dinghy if it isn't already running:
 ```sh
 $ dinghy up
 ```
 
-2. Start the Selenium hub, the app under test, and the Selenium browser nodes:
+Start the Selenium hub, the app under test, and the Selenium browser nodes:
 ```sh
 $ npm start
 ```
 
-3. Execute the tests with Nightwatch:
+Execute the tests with Nightwatch:
 ```sh
 $ npm test
 ```
 
-4. When you're done, stop and remove the docker containers:
+When you're done, stop and remove the docker containers:
 ```sh
 $ npm stop
 ```

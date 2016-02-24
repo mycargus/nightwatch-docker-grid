@@ -10,5 +10,7 @@ COPY ./package.json $APP_HOME
 RUN npm install --ignore-scripts --unsafe-perm --loglevel warn
 COPY . $APP_HOME
 
+RUN groupadd -r docker && useradd -r -g docker docker
+
 RUN chown -R docker:docker $APP_HOME
 USER docker
