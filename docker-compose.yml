@@ -1,5 +1,5 @@
 web:
-  image: app-under-test:latest
+  image: mycargus/hello-docker-world:latest
   environment:
     VIRTUAL_HOST: app.under.test
 

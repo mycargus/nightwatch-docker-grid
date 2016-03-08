@@ -14,13 +14,14 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 
 1. [dinghy](https://github.com/codekitchen/dinghy)  <--- You'll love it!!
 2. docker-compose: `$ brew install docker-compose`
-3. a docker image of the app under test
+3. a copy of this repo on your machine
+4. a docker image of the app under test (optional if you want to skip ahead)
+
+By default the project will use [a bare-bones Sinatra web app](https://github.com/mycargus/hello-docker-world) as the app under test, so if you'd like to see this project in action before adding your app, go ahead and skip to the ["How do I execute the tests?"](https://github.com/mycargus/docker-grid-nightwatch#how-do-i-execute-the-tests) section.
 
 ### Setup
 
-First you need to copy this repo to your machine.
-
-Now add the docker image of the app under test to the `docker-compose.yml` file. Be sure to define its virtual URL (a default is provided). For example:
+Add the docker image of the app under test to the `docker-compose.yml` file. Be sure to define its virtual URL (a default is provided). For example:
 ``` 
 web:
   image: app-under-test:latest
@@ -36,7 +37,7 @@ If you're not sure how to create or pull a docker image, I recommend working thr
 
 ### How do I execute the tests?
 
-Start dinghy if it isn't already running:
+Start dinghy if it isn't already running (you can check with `$ dinghy status`):
 ```sh
 $ dinghy up
 ```
