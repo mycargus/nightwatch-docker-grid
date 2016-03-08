@@ -13,6 +13,27 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 ### Dependencies (Mac OSX)
 
 1. [dinghy](https://github.com/codekitchen/dinghy)  <--- You'll love it!!
+
+If you haven't already followed dinghy's advice by adding the specified environment variables to your `.bashrc` file or equivalent, you need to do that now.
+
+You'll know everything is working when you execute these commands...
+```sh 
+$ dinghy up
+$ dinghy status
+```
+
+... and you see this:
+```sh
+$ dinghy status
+  VM: running
+ NFS: running
+FSEV: running
+ DNS: running
+HTTP: running
+
+Your environment variables are already set correctly.
+```
+
 2. docker-compose: `$ brew install docker-compose`
 3. a copy of this repo on your machine
 4. a docker image of the app under test (optional if you want to skip ahead)
