@@ -85,7 +85,7 @@ browser and go to [http://selenium.hub.docker](http://selenium.hub.docker), then
 
 ### A test is failing. How do I debug it?
 
-Start the Selenium hub, the quiz_web app, and the Selenium *debug* browser nodes:
+Start the Selenium hub, the app under test, and the Selenium *debug* browser nodes:
 ```sh
 $ npm run debug_start
 ```
