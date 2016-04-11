@@ -22,21 +22,21 @@ hub:
     - 4444:4444
 
 # TODO: specify FF version to ensure compatibility with Selenium
-node-firefox:
+firefox:
   image: selenium/node-firefox:latest
   environment:
     VIRTUAL_HOST: node.firefox.docker
   links:
     - hub
 
-node-chrome:
+chrome:
   image: selenium/node-chrome:latest
   environment:
     VIRTUAL_HOST: node.chrome.docker
   links:
     - hub
 
-node-chrome-debug:
+chrome-debug:
   image: selenium/node-chrome-debug:latest
   environment:
     VIRTUAL_HOST: node.chrome.debug.docker
@@ -46,7 +46,7 @@ node-chrome-debug:
     - hub
 
 # TODO: specify FF version to ensure compatibility with Selenium
-node-firefox-debug:
+firefox-debug:
   image: selenium/node-firefox-debug:latest
   environment:
     VIRTUAL_HOST: node.firefox.debug.docker

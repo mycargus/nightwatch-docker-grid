@@ -12,10 +12,10 @@
   "devDependencies": {},
   "scripts": {
     "build": "bin/build",
-    "debug": "nightwatch -e node-chrome-debug,node-firefox-debug",
+    "debug": "nightwatch -e chrome-debug,firefox-debug",
     "debug_start": "bin/debug_start",
     "debug_test": "bin/debug_test",
-    "nightwatch": "nightwatch -e node-chrome,node-firefox",
+    "nightwatch": "nightwatch -e chrome,firefox",
     "start": "bin/start",
     "stop": "bin/stop",
     "test": "bin/test"
