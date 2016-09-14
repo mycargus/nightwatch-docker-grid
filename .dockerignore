@@ -8,3 +8,4 @@ docker-compose.*
 .idea
 
 /tests_output
+/node_modules
