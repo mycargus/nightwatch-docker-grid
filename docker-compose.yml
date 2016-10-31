@@ -19,9 +19,8 @@ hub:
   environment:
     VIRTUAL_HOST: selenium.hub.docker
   ports:
-    - 4444:4444
+    - "4444:4444"
 
-# TODO: specify FF version to ensure compatibility with Selenium
 firefox:
   image: selenium/node-firefox:latest
   environment:
@@ -41,16 +40,15 @@ chrome-debug:
   environment:
     VIRTUAL_HOST: node.chrome.debug.docker
   ports:
-    - 5900:5900
+    - "5900:5900"
   links:
     - hub
 
-# TODO: specify FF version to ensure compatibility with Selenium
 firefox-debug:
   image: selenium/node-firefox-debug:latest
   environment:
     VIRTUAL_HOST: node.firefox.debug.docker
   ports:
-    - 5901:5900
+    - "5901:5900"
   links:
     - hub

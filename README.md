@@ -17,12 +17,14 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 If you haven't already followed dinghy's advice by adding the specified environment variables to your `.bashrc` file or equivalent, you need to do that now.
 
 You'll know everything is working when you execute these commands...
+
 ```sh 
 $ dinghy up
 $ dinghy status
 ```
 
 ... and you see this:
+
 ```sh
 $ dinghy status
   VM: running
@@ -43,6 +45,7 @@ By default the project will use [a bare-bones Sinatra web app](https://github.co
 ### Setup
 
 Add the docker image of the app under test to the `docker-compose.yml` file. Be sure to define its virtual URL (a default is provided). For example:
+
 ``` 
 web:
   image: app-under-test:latest
@@ -59,21 +62,25 @@ If you're not sure how to create or pull a docker image, I recommend working thr
 ### How do I execute the tests?
 
 Start dinghy if it isn't already running (you can check with `$ dinghy status`):
+
 ```sh
 $ dinghy up
 ```
 
 Start the Selenium hub, the app under test, and the Selenium browser nodes:
+
 ```sh
 $ npm start
 ```
 
 Execute the tests with Nightwatch:
+
 ```sh
 $ npm test
 ```
 
 When you're done, stop and remove the docker containers:
+
 ```sh
 $ npm stop
 ```
@@ -86,26 +93,31 @@ browser and go to [http://selenium.hub.docker](http://selenium.hub.docker), then
 ### A test is failing. How do I debug it?
 
 Start the Selenium hub, the app under test, and the Selenium *debug* browser nodes:
+
 ```sh
 $ npm run debug_start
 ```
 
 View the chrome debug node via VNC (password: `secret`):
+
 ```sh
 $ open vnc://node.chrome.debug.docker
 ```
 
 View the firefox debug node via VNC (password: `secret`):
+
 ```sh
 $ open vnc://node.firefox.debug.docker
 ```
 
 Next execute the Nightwatch tests against the debug nodes:
+
 ```sh
 $ npm run debug_test
 ```
 
 Again, once you're finished:
+
 ```sh
 $ npm stop
 ```
