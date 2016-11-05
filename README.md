@@ -12,7 +12,9 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 
 ### Dependencies (Mac OSX)
 
-1. [dinghy](https://github.com/codekitchen/dinghy)  <--- You'll love it!!
+1. [dinghy](https://github.com/codekitchen/dinghy)  <--- Optional dependecy, but try it; you'll love it!!
+
+Dinghy is a wrapper that speeds up Docker for macOS and is easier to use. It is an optional dependency, and it should still be possible to use `docker` in place of `dignhy`.
 
 If you haven't already followed dinghy's advice by adding the specified environment variables to your `.bashrc` file or equivalent, you need to do that now.
 
