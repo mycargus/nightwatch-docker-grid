@@ -17,16 +17,14 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 2. [homebrew package manager](http://brew.sh/)
 3. docker, docker-machine, and docker-compose: `$ brew install docker docker-machine docker-compose`
 4. optional extras to make your life easier: [dinghy](https://github.com/codekitchen/dinghy)
-   a. `$ dinghy up`
    
 ## Dependencies (Linux)
 
 1. a copy of this repo on your machine
 2. [docker and docker-compose](https://docs.docker.com/engine/installation/linux/)
 3. optional extras to make your life easier: [dory](https://github.com/FreedomBen/dory)
-   a. `$ dory up`
 
-### A note on `dinghy` and `dory`
+### A note on dinghy and dory
 
 `dinghy` and `dory` are excellent Docker utilities for MacOSX and Linux, respectively. They simplify your dockerized
 development workflow in multiple ways, perhaps the most convenient of which is this: instead of viewing your dockerized 
