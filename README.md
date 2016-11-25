@@ -39,7 +39,7 @@ By default this project will use [a bare-bones Sinatra web app](https://github.c
 app under test (AUT). 
 
 If you'd like to see this project in action before adding your app, go ahead and skip to the 
-["How do I execute the tests?"](https://github.com/mycargus/docker-grid-nightwatch#how-do-i-execute-the-tests) section.
+["How do I execute the tests?"](https://github.com/mycargus/docker-grid-nightwatch/blob/master/README.md#how-do-i-execute-the-tests) section.
 
 ## Where do I add my app?
 
@@ -62,7 +62,7 @@ change it, be sure to replace the launch_url value located in the `nightwatch.js
 If you're not sure how to create or pull a docker image, I recommend working through the official Docker tutorial located on
 their website.
 
-### How do I execute the tests?
+## How do I execute the tests?
 
 Start the Selenium hub, the AUT, and the Selenium browser nodes:
 
@@ -82,12 +82,12 @@ When you're done, stop and remove the docker containers:
 $ npm stop
 ```
 
-### Can I view the Selenium grid console?
+## Can I view the Selenium grid console?
 
 Yep! After having started the Selenium hub and nodes (`$ npm start`), open a
 browser and go to [http://selenium.hub.docker](http://selenium.hub.docker), then click the 'console' link.
 
-### A test is failing. How do I debug it?
+## A test is failing. How do I debug it?
 
 Start the Selenium hub, the app under test, and the Selenium *debug* browser nodes:
 
