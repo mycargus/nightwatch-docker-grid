@@ -1,13 +1,13 @@
 {
   "name": "docker-grid-nightwatch",
   "version": "1.0.0",
-  "description": "A dockerized environment for executing Selenium tests against your dockerized app",
+  "description": "A dockerized Selenium grid for executing Selenium-driven Nightwatch.js tests against your dockerized web app",
   "main": "",
   "directories": {
     "test": "tests"
   },
   "dependencies": {
-    "nightwatch": "^0.8.16"
+    "nightwatch": "^0.8.18"
   },
   "devDependencies": {},
   "scripts": {

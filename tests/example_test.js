@@ -6,8 +6,8 @@ module.exports = {
     console.log('Nightwatch test started');
 
     browser
-      .url('http://www.google.com')
-      .assert.title('Google')
+      .url('http://hello.docker')
+      .assert.containsText('#test', 'Hello, Docker World!')
       .end();
 
     console.log('Nightwatch test finished');
