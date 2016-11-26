@@ -49,9 +49,9 @@ If you're using `dinghy` or `dory`, be sure to define the AUT's virtual URL (a d
 
 ```
 web:
-  image: app-under-test:latest
+  image: my-app-under-test:latest
   environment:
-    VIRTUAL_HOST: app.under.test
+    VIRTUAL_HOST: myapp.docker
 ```
 
 That was easy!
@@ -80,6 +80,14 @@ When you're done, stop and remove the docker containers:
 
 ```sh
 $ npm stop
+```
+
+Alternatively, if you don't want to install Node on your native machine, you may use the included `bin/` scripts. For example:
+
+```sh
+bin/start
+bin/test
+bin/stop
 ```
 
 ## Can I view the Selenium grid console?
@@ -113,8 +121,9 @@ Next execute the Nightwatch tests against the debug nodes:
 $ npm run debug_test
 ```
 
-Again, once you're finished:
+Again, if you don't want to install Node on your native machine, you may use the included `bin/` scripts:
 
 ```sh
-$ npm stop
+bin/debug_start
+bin/debug_test
 ```
