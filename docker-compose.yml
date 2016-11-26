@@ -6,7 +6,6 @@ services:
     image: mycargus/hello_docker_world:latest
     environment:
       VIRTUAL_HOST: hello.docker
-      VIRTUAL_PORT: 80
 
   nightwatch:
     build:
