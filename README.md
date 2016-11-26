@@ -35,7 +35,7 @@ _Both `dinghy` and `dory` are optional dependencies, and one may certainly use t
 
 ## Setup
 
-By default this project will use [a bare-bones Sinatra web app](https://github.com/mycargus/hello-docker-world) as the 
+By default this project will use [a bare-bones Sinatra web app](https://github.com/mycargus/hello_docker_world) as the 
 app under test (AUT). 
 
 If you'd like to see this project in action before adding your app, go ahead and skip to the 
@@ -55,9 +55,6 @@ web:
 ```
 
 That was easy!
-
-NOTE: `VIRTUAL_HOST` is your app's URL against which Nightwatch will execute the tests. It can be whatever you want. If you
-change it, be sure to replace the launch_url value located in the `nightwatch.json` file.
 
 If you're not sure how to create or pull a docker image, I recommend working through the official Docker tutorial located on
 their website.
