@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Starts nightwatch, the Selenium hub, the app under test, and the Selenium browser nodes
+# Starts the app under test, the Selenium hub, and the Selenium browser nodes
 
 ./bin/stop
 
-docker-compose up -d nightwatch chrome firefox
+docker-compose up -d web hub chrome firefox
