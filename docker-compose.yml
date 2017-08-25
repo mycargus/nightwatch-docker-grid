@@ -12,8 +12,6 @@ services:
       context: .
     environment:
       NODE_ENV: test
-    volumes:
-      - .:/usr/src/app
     links:
       - web
       - hub
