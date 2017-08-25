@@ -3,4 +3,8 @@
 # install
 npm install --ignore-scripts --unsafe-perm --loglevel warn
 # launch
-npm run nightwatch
+if [ -n "$DEBUG" ] ; then
+    npm run debug
+else
+    npm run nightwatch
+fi

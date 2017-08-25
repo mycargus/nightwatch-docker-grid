@@ -3,6 +3,5 @@
 # Starts test runner execution of all tests
 # TODO: add arguments to specify nodes and number of concurrent nodes, e.g. scale firefox=4
 
-docker-compose run --name results nightwatch
-docker cp results:/usr/src/app/tests_output .
+docker-compose run --name results nightwatch && docker cp results:/usr/src/app/tests_output .
 docker rm -v results

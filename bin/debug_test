@@ -2,6 +2,5 @@
 
 # Useful for debugging failing tests
 
-docker-compose run --name results nightwatch npm run debug
-docker cp results:/usr/src/app/tests_output .
+docker-compose run --name results -e DEBUG=true nightwatch && docker cp results:/usr/src/app/tests_output .
 docker rm -v results
