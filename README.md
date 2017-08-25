@@ -36,16 +36,16 @@ _Both `dinghy` and `dory` are optional dependencies, and one may certainly use t
 ## Setup
 
 By default this project will use [a bare-bones Sinatra web app](https://github.com/mycargus/hello_docker_world) as the 
-app under test (AUT). 
+app under test (UAT). 
 
 If you'd like to see this project in action before adding your app, go ahead and skip to the 
 ["How do I execute the tests?"](https://github.com/mycargus/docker-grid-nightwatch/blob/master/README.md#how-do-i-execute-the-tests) section.
 
 ## Where do I add my app?
 
-Add the docker image of the AUT to the `docker-compose.yml` file under the `web` service container. 
+Add the docker image of the UAT to the `docker-compose.yml` file under the `web` service container. 
 
-If you're using `dinghy` or `dory`, be sure to define the AUT's virtual URL (a default is provided). For example:
+If you're using `dinghy` or `dory`, be sure to define the UAT's virtual URL (a default is provided). For example:
 
 ```
 web:
@@ -61,7 +61,7 @@ their website.
 
 ## How do I execute the tests?
 
-Start the Selenium hub, the AUT, and the Selenium browser nodes:
+Start the Selenium hub, the UAT, and the Selenium browser nodes:
 
 ```sh
 $ npm start
