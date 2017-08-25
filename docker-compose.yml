@@ -12,7 +12,7 @@ services:
       context: .
     environment:
       NODE_ENV: test
-    links:
+    depends_on:
       - web
       - hub
 
@@ -32,7 +32,7 @@ services:
       # https://github.com/SeleniumHQ/docker-selenium/issues/133
       HUB_PORT_4444_TCP_ADDR: hub
       HUB_PORT_4444_TCP_PORT: 4444
-    links:
+    depends_on:
       - hub
       - web
 
@@ -40,7 +40,7 @@ services:
     image: selenium/node-chrome:3.0.1
     environment:
       <<: *SELENIUM_NODE_ENV
-    links:
+    depends_on:
       - hub
       - web
 
@@ -50,7 +50,7 @@ services:
       <<: *SELENIUM_NODE_ENV
     ports:
       - "5900:5900"
-    links:
+    depends_on:
       - hub
       - web
 
@@ -60,6 +60,6 @@ services:
       <<: *SELENIUM_NODE_ENV
     ports:
       - "5901:5900"
-    links:
+    depends_on:
       - hub
       - web
