@@ -1,4 +1,6 @@
 
+var nightwatchConfig = require('../nightwatch.json');
+
 // EXAMPLE ONLY:
 
 module.exports = {
@@ -6,7 +8,7 @@ module.exports = {
     console.log('Nightwatch test started');
 
     browser
-      .url('http://hello.docker')
+      .url(nightwatchConfig.test_settings.default.launch_url)
       .assert.containsText('#test', 'Hello, Docker World!')
       .end();
 

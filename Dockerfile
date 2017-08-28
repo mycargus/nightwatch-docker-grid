@@ -6,8 +6,8 @@ FROM alpine:latest
 
 USER root
 
-ENV USER docker
 ENV HOME /home
+ENV USER docker
 ENV APP_DIR $HOME/$USER/app
 
 # http://pkg-shadow.alioth.debian.org/features.php
