@@ -2,7 +2,9 @@
 
 # Useful for debugging failing tests
 
-docker-compose run --name nightwatch_grid_results -e DEBUG=true nightwatch \
-&& docker cp nightwatch_grid_results:/home/docker/app/tests_output . \
-&& docker rm -v nightwatch_grid_results
+container=nightwatch_grid_results
+
+docker-compose run --name $container -e DEBUG=true nightwatch \
+&& docker cp $container:/home/docker/app/tests_output . \
+&& docker rm -v $container
 
