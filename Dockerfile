@@ -42,6 +42,7 @@ RUN apk del ${TEMPORARY_DEPENDENCIES}
 
 # create dedicated directory
 RUN mkdir -p $APP_DIR
+RUN mkdir -p $APP_DIR/tests_output/screenshots
 ADD scripts/entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
 # copy local host content to container
