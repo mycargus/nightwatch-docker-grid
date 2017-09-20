@@ -34,7 +34,6 @@ services:
       HUB_PORT_4444_TCP_PORT: 4444
     depends_on:
       - hub
-      - web
 
   chrome:
     image: selenium/node-chrome:3.0.1
@@ -42,7 +41,6 @@ services:
       <<: *SELENIUM_NODE_ENV
     depends_on:
       - hub
-      - web
 
   chrome-debug:
     image: selenium/node-chrome-debug:3.0.1
@@ -52,7 +50,6 @@ services:
       - "5900:5900"
     depends_on:
       - hub
-      - web
 
   firefox-debug:
     image: selenium/node-firefox-debug:3.0.1
@@ -62,4 +59,3 @@ services:
       - "5901:5900"
     depends_on:
       - hub
-      - web
