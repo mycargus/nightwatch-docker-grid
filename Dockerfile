@@ -32,7 +32,7 @@ RUN apk --no-cache add \
 # post-installation
 ####
 
-# cleaning no more needed dependecies
+# clean no longer needed dependencies
 RUN apk del ${TEMPORARY_DEPENDENCIES}
 
 
@@ -45,13 +45,25 @@ RUN mkdir -p $APP_DIR
 RUN mkdir -p $APP_DIR/tests_output/screenshots
 ADD scripts/entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
-# copy local host content to container
-COPY . $APP_DIR
+
+# copy package.json to image
+ADD package.json $APP_DIR
 # change rights of the folder containing the newly copied content
 RUN chown -R $USER $HOME
-# finally switch to newly created user
+# switch to docker user to ensure correct permissions for npm dependencies
 USER $USER
 
 WORKDIR $APP_DIR
+
+RUN npm install --ignore-scripts --unsafe-perm --loglevel warn
+
+# add rest of repo to image (doing this after installing npm dependencies
+# makes for a faster development workflow because only a change to package.json
+# will force docker to rebuild the "npm install" layer above)
+USER root
+ADD . $APP_DIR
+
+# switch back to the docker user
+USER $USER
 
 ENTRYPOINT ["/entrypoint.sh"]
