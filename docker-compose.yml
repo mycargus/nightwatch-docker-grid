@@ -6,6 +6,10 @@ services:
     image: mycargus/hello_docker_world:latest
     environment:
       VIRTUAL_HOST: hello.docker
+    logging: &LOG
+      options:
+        max-file: '5'
+        max-size: 1m
 
   nightwatch:
     build:
@@ -15,6 +19,7 @@ services:
     depends_on:
       - web
       - hub
+    logging: *LOG
 
   hub:
     image: selenium/hub:3.0.1
@@ -24,6 +29,7 @@ services:
       VIRTUAL_HOST: selenium.hub.docker
     ports:
       - "4444:4444"
+    logging: *LOG
 
   firefox:
     image: selenium/node-firefox:3.0.1
@@ -34,6 +40,7 @@ services:
       HUB_PORT_4444_TCP_PORT: 4444
     depends_on:
       - hub
+    logging: *LOG
 
   chrome:
     image: selenium/node-chrome:3.0.1
@@ -41,6 +48,7 @@ services:
       <<: *SELENIUM_NODE_ENV
     depends_on:
       - hub
+    logging: *LOG
 
   chrome-debug:
     image: selenium/node-chrome-debug:3.0.1
@@ -50,6 +58,7 @@ services:
       - "5900:5900"
     depends_on:
       - hub
+    logging: *LOG
 
   firefox-debug:
     image: selenium/node-firefox-debug:3.0.1
@@ -59,3 +68,4 @@ services:
       - "5901:5900"
     depends_on:
       - hub
+    logging: *LOG
