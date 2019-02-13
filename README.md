@@ -1,3 +1,5 @@
+[![Codeship Status for mycargus/nightwatch-docker-grid](https://app.codeship.com/projects/aeb74bb0-114c-0137-95da-5a3f86d8c298/status?branch=master)](https://app.codeship.com/projects/327260)
+
 # A Dockerized Selenium Grid with Nightwatch
 
 I built this project to quickly provision a dockerized environment for running
@@ -17,7 +19,7 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 2. [homebrew package manager](http://brew.sh/)
 3. docker, docker-machine, and docker-compose: `$ brew install docker docker-machine docker-compose`
 4. optional extras to make your life easier: [dinghy](https://github.com/codekitchen/dinghy)
-   
+
 ## Dependencies (Linux)
 
 1. a copy of this repo on your machine
@@ -27,23 +29,23 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 ### A note on dinghy and dory
 
 `dinghy` and `dory` are excellent Docker utilities for MacOSX and Linux, respectively. They simplify your dockerized
-development workflow in multiple ways, perhaps the most convenient of which is this: instead of viewing your dockerized 
+development workflow in multiple ways, perhaps the most convenient of which is this: instead of viewing your dockerized
 web app in your browser with `http://$(docker-machine ip):<port>`, you can simply go to `http://myapp.docker`.
 
-_Both `dinghy` and `dory` are optional dependencies, and one may certainly use the bare-bones Docker ecosystem 
+_Both `dinghy` and `dory` are optional dependencies, and one may certainly use the bare-bones Docker ecosystem
 (and [docker-grid-nightwatch](https://github.com/mycargus/docker-grid-nightwatch)) without them._
 
 ## Setup
 
-By default this project will use [a bare-bones Sinatra web app](https://github.com/mycargus/hello_docker_world) as the 
-system under test (SUT). 
+By default this project will use [a bare-bones Sinatra web app](https://github.com/mycargus/hello_docker_world) as the
+system under test (SUT).
 
-If you'd like to see this project in action before adding your app, go ahead and skip to the 
+If you'd like to see this project in action before adding your app, go ahead and skip to the
 ["How do I execute the tests?"](https://github.com/mycargus/docker-grid-nightwatch/blob/master/README.md#how-do-i-execute-the-tests) section.
 
 ## Where do I add my app?
 
-Add the docker image of the SUT to the `docker-compose.yml` file under the `web` service container. 
+Add the docker image of the SUT to the `docker-compose.yml` file under the `web` service container.
 
 If you're using `dinghy` or `dory`, be sure to define the SUT's virtual URL (a default is provided). For example:
 
