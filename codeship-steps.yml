@@ -1,3 +1,6 @@
+- name: wait_for_selenium_grid
+  service: nightwatch
+  command: sleep 10
 - name: test
   service: nightwatch
   command: ./entrypoint.sh

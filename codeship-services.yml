@@ -22,6 +22,8 @@ hub:
     GRID_NEW_SESSION_WAIT_TIMEOUT: 8000
     GRID_NODE_POLLING: 300
     GRID_TIMEOUT: 120000
+  ports:
+    - "4444"
 
 nightwatch:
   build: .
