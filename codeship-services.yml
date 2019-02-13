@@ -19,6 +19,8 @@ hub:
   image: selenium/hub:3.0.1
   environment:
     GRID_BROWSER_TIMEOUT: 120000
+    GRID_NEW_SESSION_WAIT_TIMEOUT: 8000
+    GRID_NODE_POLLING: 300
     GRID_TIMEOUT: 120000
 
 nightwatch:
