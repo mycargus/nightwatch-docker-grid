@@ -1,7 +1,11 @@
 #!/bin/sh
 
 # wait for the selenium grid browser nodes to register with the selenium grid hub
-sleep 5
+if [ -n "$CI" ]; then
+  sleep 12
+else
+  sleep 3
+fi
 
 if [ -n "$DEBUG" ] ; then
     npm run nightwatch-debug
