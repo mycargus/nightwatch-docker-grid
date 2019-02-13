@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 
 services:
 
@@ -6,6 +6,8 @@ services:
     image: mycargus/hello_docker_world:latest
     environment:
       VIRTUAL_HOST: hello.docker
+    networks:
+      - nightwatch-docker-grid-network
     logging: &LOG
       options:
         max-file: '5'
@@ -16,9 +18,8 @@ services:
       context: .
     environment:
       NODE_ENV: test
-    depends_on:
-      - web
-      - hub
+    networks:
+      - nightwatch-docker-grid-network
     logging: *LOG
 
   hub:
@@ -29,6 +30,8 @@ services:
       VIRTUAL_HOST: selenium.hub.docker
     ports:
       - "4444:4444"
+    networks:
+      - nightwatch-docker-grid-network
     logging: *LOG
 
   firefox:
@@ -38,16 +41,16 @@ services:
       # https://github.com/SeleniumHQ/docker-selenium/issues/133
       HUB_PORT_4444_TCP_ADDR: hub
       HUB_PORT_4444_TCP_PORT: 4444
-    depends_on:
-      - hub
+    networks:
+      - nightwatch-docker-grid-network
     logging: *LOG
 
   chrome:
     image: selenium/node-chrome:3.0.1
     environment:
       <<: *SELENIUM_NODE_ENV
-    depends_on:
-      - hub
+    networks:
+      - nightwatch-docker-grid-network
     logging: *LOG
 
   chrome-debug:
@@ -56,8 +59,8 @@ services:
       <<: *SELENIUM_NODE_ENV
     ports:
       - "5900:5900"
-    depends_on:
-      - hub
+    networks:
+      - nightwatch-docker-grid-network
     logging: *LOG
 
   firefox-debug:
@@ -66,6 +69,12 @@ services:
       <<: *SELENIUM_NODE_ENV
     ports:
       - "5901:5900"
-    depends_on:
-      - hub
+    networks:
+      - nightwatch-docker-grid-network
     logging: *LOG
+
+
+networks:
+  nightwatch-docker-grid-network:
+    driver: bridge
+    name: nightwatch-docker-grid-network
