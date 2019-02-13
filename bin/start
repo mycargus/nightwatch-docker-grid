@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Starts the app under test, the Selenium hub, and the Selenium browser nodes
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Starts test runner execution of all tests
 # TODO: add arguments to specify nodes and number of concurrent nodes, e.g. scale firefox=4
