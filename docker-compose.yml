@@ -16,6 +16,7 @@ services:
   nightwatch:
     build:
       context: .
+    command: ./run_nightwatch.sh
     environment:
       NODE_ENV: test
     networks:

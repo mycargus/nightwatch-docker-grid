@@ -29,7 +29,6 @@ nightwatch:
   build: .
   environment:
     NODE_ENV: test
-  cached: true
   depends_on:
     - chrome
     - firefox
