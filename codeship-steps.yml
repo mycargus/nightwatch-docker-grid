@@ -1,0 +1,13 @@
+# - type: parallel
+#   name: setup
+#   services:
+#     - chrome
+#     - firefox
+#     - hub
+#     - web
+#   steps:
+#     - command: echo "starting"
+
+- name: test
+  service: nightwatch
+  command: npm run nightwatch
