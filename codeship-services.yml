@@ -27,6 +27,7 @@ hub:
 
 nightwatch:
   build: .
+  cache: true
   environment:
     NODE_ENV: test
   depends_on:
