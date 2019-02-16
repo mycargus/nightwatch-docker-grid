@@ -1,11 +1,15 @@
-Dockerfile
 .dockerignore
-docker-compose.*
-
 .DS_Store
 .git
 .gitignore
 .idea
+.travis.yml
 
-/tests_output
-/node_modules
+Dockerfile
+docker-compose.*
+LICENSE.txt
+README.md
+
+node_modules/
+scripts/ci/
+tests_output/

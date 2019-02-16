@@ -1,4 +1,4 @@
-[![Codeship Status for mycargus/nightwatch-docker-grid](https://app.codeship.com/projects/aeb74bb0-114c-0137-95da-5a3f86d8c298/status?branch=master)](https://app.codeship.com/projects/327260)
+[![Build Status](https://travis-ci.org/mycargus/nightwatch-docker-grid.svg?branch=master)](https://travis-ci.org/mycargus/nightwatch-docker-grid)
 
 # A Dockerized Selenium Grid with Nightwatch
 

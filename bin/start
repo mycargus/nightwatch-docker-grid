@@ -4,4 +4,4 @@
 
 ./bin/stop
 
-docker-compose up -d web hub chrome firefox
+docker-compose up -d web hub node-chrome node-firefox

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-# Starts test runner execution of all tests
-# TODO: add arguments to specify nodes and number of concurrent nodes, e.g. scale firefox=4
+# Starts testrunner execution of all specs.
+#
+# See the 'testrunner' service config in docker-compose.yml to see which script
+# the container runs.
 
 container=nightwatch_grid_results
 

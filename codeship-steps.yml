@@ -1,5 +1,0 @@
-- name: test
-  service: nightwatch
-  environment:
-    - CI: true
-  command: ./run_nightwatch.sh

@@ -1,11 +1,18 @@
+---
 version: '3.7'
 
 services:
 
-  web:
-    image: mycargus/hello_docker_world:latest
+  hub:
+    image: selenium/hub:3.0.1
     environment:
-      VIRTUAL_HOST: hello.docker
+      GRID_BROWSER_TIMEOUT: 120000
+      GRID_NEW_SESSION_WAIT_TIMEOUT: 8000
+      GRID_NODE_POLLING: 300
+      GRID_TIMEOUT: 120000
+      VIRTUAL_HOST: selenium.hub.docker
+    ports:
+      - "4444:4444"
     networks:
       - nightwatch-docker-grid-network
     logging: &LOG
@@ -23,22 +30,8 @@ services:
       - nightwatch-docker-grid-network
     logging: *LOG
 
-  hub:
-    image: selenium/hub:3.0.1
-    environment:
-      GRID_BROWSER_TIMEOUT: 120000
-      GRID_NEW_SESSION_WAIT_TIMEOUT: 8000
-      GRID_NODE_POLLING: 300
-      GRID_TIMEOUT: 120000
-      VIRTUAL_HOST: selenium.hub.docker
-    ports:
-      - "4444:4444"
-    networks:
-      - nightwatch-docker-grid-network
-    logging: *LOG
-
-  firefox:
-    image: selenium/node-firefox:3.0.1
+  node-chrome:
+    image: selenium/node-chrome:3.0.1
     environment: &SELENIUM_NODE_ENV
       # this is a necessary workaround due to a known bug
       # https://github.com/SeleniumHQ/docker-selenium/issues/133
@@ -48,15 +41,7 @@ services:
       - nightwatch-docker-grid-network
     logging: *LOG
 
-  chrome:
-    image: selenium/node-chrome:3.0.1
-    environment:
-      <<: *SELENIUM_NODE_ENV
-    networks:
-      - nightwatch-docker-grid-network
-    logging: *LOG
-
-  chrome-debug:
+  node-chrome-debug:
     image: selenium/node-chrome-debug:3.0.1
     environment:
       <<: *SELENIUM_NODE_ENV
@@ -66,7 +51,15 @@ services:
       - nightwatch-docker-grid-network
     logging: *LOG
 
-  firefox-debug:
+  node-firefox:
+    image: selenium/node-firefox:3.0.1
+    environment:
+      <<: *SELENIUM_NODE_ENV
+    networks:
+      - nightwatch-docker-grid-network
+    logging: *LOG
+
+  node-firefox-debug:
     image: selenium/node-firefox-debug:3.0.1
     environment:
       <<: *SELENIUM_NODE_ENV
@@ -76,6 +69,13 @@ services:
       - nightwatch-docker-grid-network
     logging: *LOG
 
+  web:
+    image: mycargus/hello_docker_world:latest
+    environment:
+      VIRTUAL_HOST: hello.docker
+    networks:
+      - nightwatch-docker-grid-network
+    logging: *LOG
 
 networks:
   nightwatch-docker-grid-network:
