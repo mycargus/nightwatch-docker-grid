@@ -7,7 +7,7 @@ ENV APP_DIR $HOME/docker/app
 
 # http://pkg-shadow.alioth.debian.org/features.php
 ENV TEMPORARY_DEPENDENCIES='shadow'
-RUN apk update && apk --no-cache add ${TEMPORARY_DEPENDENCIES}
+RUN apk --no-cache add bash ${TEMPORARY_DEPENDENCIES}
 
 # add user as per: https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#user
 RUN groupadd -r docker && useradd --no-log-init -r -g docker docker
