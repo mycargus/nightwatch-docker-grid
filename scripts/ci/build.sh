@@ -22,6 +22,7 @@ function cleanup()
 
 trap cleanup INT TERM EXIT
 
+docker-compose pull
 docker-compose build --pull
 docker-compose up -d node-chrome node-firefox hub web
 
