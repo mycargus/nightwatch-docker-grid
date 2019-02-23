@@ -37,19 +37,51 @@ _Both `dinghy` and `dory` are optional dependencies, and one may certainly use t
 
 ## Setup
 
-By default this project will use [a bare-bones Sinatra web app](https://github.com/mycargus/hello_docker_world) as the
-system under test (SUT).
+Here's the default workflow when writing Nightwatch tests in this project:
 
-If you'd like to see this project in action before adding your app, go ahead and skip to the
-["How do I execute the tests?"](https://github.com/mycargus/docker-grid-nightwatch/blob/master/README.md#how-do-i-execute-the-tests) section.
+* `bin/build && bin/start && bin/test`
+* make changes to files inside the tests/ directory
+* verify changes with `bin/build && bin/start && bin/test`
 
-## Where do I add my app?
+:sadtrombone:
 
-Add the docker image of the SUT to the `docker-compose.yml` file under the `web` service container.
+To make your life easier, first do this:
 
-If you're using `dinghy` or `dory`, be sure to define the SUT's virtual URL (a default is provided). For example:
-
+```sh
+cp docker-compose.dev.override.yml docker-compose.override.yml
 ```
+
+Now any changes you make within this repo on your host file system will
+automatically show up in the `nightwatch` docker container. Here's your new
+workflow:
+
+* `bin/build && bin/start && bin/test`
+* make changes to files inside the tests/ directory
+* `bin/test`
+
+:party:
+
+Some folks have reported file permission issues with this workflow, so YMMV.
+
+### Where do I add my app?
+
+By default this project will use [a bare-bones Sinatra web app](https://github.com/mycargus/hello_docker_world)
+as the system under test (SUT). If you want to replace that default web app with
+your own, open the `docker-compose.yml` file, find the `web` service
+configuration, and replace `mycargus/hello_docker_world:latest` with your app's
+docker image label.
+
+For example:
+
+```yaml
+web:
+  image: my-app-under-test:latest
+```
+
+If you're using `dinghy` or `dory`, be sure to define the SUT's virtual URL (a
+default is provided). For example:
+
+```yaml
 web:
   image: my-app-under-test:latest
   environment:
@@ -58,8 +90,8 @@ web:
 
 That was easy!
 
-If you're not sure how to create or pull a docker image, I recommend working through the official Docker tutorial located on
-their website.
+If you're not sure how to create or pull a docker image, I recommend working
+through the official Docker tutorial located on their website.
 
 ## How do I execute the tests?
 

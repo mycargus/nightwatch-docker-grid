@@ -1,14 +1,9 @@
 .idea
 .DS_Store
-/tests_output
-
-# Dependency directory
-node_modules
-
-# Optional npm cache directory
-.npm
-
-# Optional REPL history
 .node_repl_history
-
+docker-compose.override.yml
 npm-debug.log
+
+.npm/
+node_modules/
+tests_output/
