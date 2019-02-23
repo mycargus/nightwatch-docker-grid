@@ -22,6 +22,14 @@ function cleanup()
 
 trap cleanup INT TERM EXIT
 
+
+project_root="$(dirname "$(git rev-parse --git-dir)")"
+
+bash "$project_root"/lib/continuous_integration.bash lint_dockerfiles
+bash "$project_root"/lib/continuous_integration.bash lint_markdown
+bash "$project_root"/lib/continuous_integration.bash lint_shell
+bash "$project_root"/lib/continuous_integration.bash lint_yaml
+
 docker-compose pull
 docker-compose build --pull
 docker-compose up -d node-chrome node-firefox hub web

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Lint YAML documents.
+#
+# Reference: https://yamllint.readthedocs.io/en/latest/
+
+# shellcheck source=lib/binutil.bash
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../lib/binutil.bash" &&
+ensure_running_from_root
+
+echo ':: Linting yaml files'
+
+docker run --rm -t $di -v "$PWD":/mnt:ro -w /mnt \
+  sdesbure/yamllint \
+    yamllint "$@"
