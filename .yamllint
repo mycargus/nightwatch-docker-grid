@@ -1,0 +1,28 @@
+---
+extends: default
+
+ignore: |
+  node_modules/
+
+rules:
+  brackets: false
+  comments:
+    level: warning
+    require-starting-space: true
+    min-spaces-from-content: 1
+  comments-indentation:
+    level: warning
+  indentation:
+    spaces: consistent
+    indent-sequences: true
+    check-multi-line-strings: true
+    ignore: codeship-steps.yml
+  key-duplicates: enable
+  line-length:
+    level: warning
+    max: 80
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: false
+  trailing-spaces: enable
+  truthy:
+    level: warning
