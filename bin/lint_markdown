@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Lint Markdown documents.
+#
+# Reference: https://github.com/remarkjs/remark-lint
+
+# shellcheck source=lib/binutil.bash
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../lib/binutil.bash" &&
+ensure_running_from_root
+
+docker build -t koala-tea/remark docker/remark >/dev/null
+
+echo ':: Linting markdown files'
+
+docker run --rm -t $di -v "$PWD":/lint/input:ro \
+  koala-tea/remark \
+    "$@"

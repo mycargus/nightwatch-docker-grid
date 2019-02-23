@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Lint Dockerfiles.
+#
+# Reference: https://github.com/hadolint/hadolint
+
+# shellcheck source=lib/binutil.bash
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../lib/binutil.bash" &&
+ensure_running_from_root
+
+echo ':: Linting Dockerfiles'
+
+docker run --rm -t $di -v "$PWD":/mnt:ro -w /mnt \
+  hadolint/hadolint \
+    hadolint "$@"
