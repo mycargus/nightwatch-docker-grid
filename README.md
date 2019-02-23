@@ -179,7 +179,13 @@ bin/debug_start
 bin/debug_test
 ```
 
+## Contributing
+
+We welcome and encourage contributions! See our [Contributing][contributing] doc
+for development instructions and more info.
+
 [app]: https://github.com/mycargus/hello_docker_world
+[contributing]: https://github.com/mycargus/nightwatch-docker-grid/blob/master/CONTRIBUTING.md
 [dinghy]: https://github.com/codekitchen/dinghy
 [docker]: https://docs.docker.com/engine/installation/linux/
 [dory]: https://github.com/FreedomBen/dory
