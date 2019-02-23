@@ -22,7 +22,7 @@ RUN apk --no-cache add \
 # clean no longer needed dependencies
 RUN apk del ${TEMPORARY_DEPENDENCIES}
 
-# create dedicated directory
+# create directories
 RUN mkdir -p $APP_DIR
 RUN mkdir -p $APP_DIR/tests_output/screenshots
 RUN chown -R docker $APP_DIR
@@ -37,11 +37,9 @@ USER docker
 RUN npm install --ignore-scripts --unsafe-perm --loglevel warn
 
 USER root
-COPY --chown=docker:docker scripts/run_nightwatch.sh ./run_nightwatch.sh
-RUN chmod 755 ./run_nightwatch.sh
 
 # add rest of repo to image (doing this after installing npm dependencies
-# makes for a faster development workflow because only a change to package.json
+# makes for a faster development workflow because only a change to package*.json
 # will force docker to rebuild the "npm install" layer above)
 COPY --chown=docker:docker . ./
 
