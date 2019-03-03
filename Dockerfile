@@ -34,7 +34,10 @@ COPY --chown=docker:docker package.json package-lock.json ./
 # switch to docker user to ensure correct permissions for npm dependencies
 USER docker
 
-RUN npm install --ignore-scripts --unsafe-perm --loglevel warn
+# `npm ci` actually enforces the package-lock and is way faster!
+# See https://docs.npmjs.com/cli/ci.html
+RUN npm ci --ignore-scripts --unsafe-perm --loglevel warn --no-progress || \
+    npm install --ignore-scripts --unsafe-perm --loglevel warn --no-progress
 
 USER root
 
