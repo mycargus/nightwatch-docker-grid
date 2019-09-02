@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "nightwatch": "^1.2.1"
+    "nightwatch": "^1.2.2"
   },
   "devDependencies": {},
   "scripts": {
