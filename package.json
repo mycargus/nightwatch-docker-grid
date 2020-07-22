@@ -9,12 +9,17 @@
   "dependencies": {
     "nightwatch": "^1.3.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  },
   "scripts": {
     "debug_start": "bin/debug_start",
     "debug_test": "bin/debug_test",
     "nightwatch": "nightwatch -e chrome,firefox",
     "nightwatch-debug": "nightwatch -e chrome-debug,firefox-debug",
+    "pretty": "prettier \"./**/*.+(yaml|yml|json|md)\"",
+    "lint": "npm run pretty -- --check",
+    "lint:fix": "npm run pretty -- --write",
     "start": "bin/start",
     "stop": "bin/stop",
     "test": "bin/test"
