@@ -3,7 +3,7 @@
 # A Dockerized Selenium Grid with Nightwatch
 
 I built this project to quickly provision a dockerized environment for running
-UI tests against a dockerized app. It employs a dockerized [Selenium Grid][grid]
+UI tests against a dockerized app. It employs a dockerized [Selenium Grid]
 which yields a far more cost-effective CI solution compared to purchasing and
 maintaining dedicated machines.
 
@@ -18,46 +18,27 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 
 ## Dependencies (OSX)
 
--   a copy of this repo on your machine
--   homebrew package manager: <http://brew.sh/>
--   docker, docker-machine, and docker-compose:
-
-```sh
-brew install docker docker-machine docker-compose
-```
-
--   optional extras to make your life easier: [dinghy][dinghy]
+- a copy of this repo on your machine
+- [Docker for Mac]
 
 ## Dependencies (Linux)
 
--   a copy of this repo on your machine
--   [docker and docker-compose][docker]
--   optional extras to make your life easier: [dory][dory]
-
-### A note on dinghy and dory
-
-`dinghy` and `dory` are excellent Docker utilities for MacOSX and Linux,
-respectively. They simplify your dockerized development workflow in multiple
-ways, perhaps the most convenient of which is this: instead of viewing your
-dockerized web app in your browser with `http://$(docker-machine ip):<port>`,
-you can simply go to `http://myapp.docker`.
-
-*Both `dinghy` and `dory` are optional dependencies, and one may certainly use
-the bare-bones Docker ecosystem (and this project) without them.*
+- a copy of this repo on your machine
+- [Docker]
 
 ## Setup
 
 Here's the default workflow when writing Nightwatch tests in this project:
 
--   `bin/build && bin/start && bin/test`
--   make changes to files inside the tests/ directory
--   verify changes with `bin/build && bin/start && bin/test`
+- `bin/build && bin/start && bin/test`
+- make changes to files inside the tests/ directory
+- verify changes with `bin/build && bin/start && bin/test`
 
 :sadtrombone:
 
 To make your life easier, first do this:
 
-```sh
+```bash
 cp docker-compose.dev.override.yml docker-compose.override.yml
 ```
 
@@ -65,9 +46,9 @@ Now any changes you make within this repo on your host file system will
 automatically show up in the `nightwatch` docker container. Here's your new
 workflow:
 
--   `bin/build && bin/start && bin/test`
--   make changes to files inside the tests/ directory
--   `bin/test`
+- `bin/build && bin/start && bin/test`
+- make changes to files inside the tests/ directory
+- `bin/test`
 
 :party:
 
@@ -78,27 +59,15 @@ Some folks have reported file permission issues with this workflow, so YMMV.
 By default this project will use [a bare-bones Sinatra web app][app]
 as the system under test (SUT). If you want to replace that default web app with
 your own, open the `docker-compose.yml` file, find the `web` service
-configuration, and replace `mycargus/hello_docker_world:latest` with your app's
+configuration, and replace `mycargus/hello_docker_world:master` with your app's
 docker image label.
 
 For example:
 
 ```yaml
 web:
-  image: my-app-under-test:latest
+  image: my-app-under-test:master
 ```
-
-If you're using `dinghy` or `dory`, be sure to define the SUT's virtual URL (a
-default is provided). For example:
-
-```yaml
-web:
-  image: my-app-under-test:latest
-  environment:
-    VIRTUAL_HOST: myapp.docker
-```
-
-That was easy!
 
 If you're not sure how to create or pull a docker image, I recommend working
 through the official Docker tutorial located on their website.
@@ -107,26 +76,26 @@ through the official Docker tutorial located on their website.
 
 Start the Selenium hub, the SUT, and the Selenium browser nodes:
 
-```sh
+```bash
 $ npm start
 ```
 
 Execute the tests with Nightwatch:
 
-```sh
+```bash
 $ npm test
 ```
 
 When you're done, stop and remove the docker containers:
 
-```sh
+```bash
 $ npm stop
 ```
 
 Alternatively, if you don't want to install Node on your native machine, you may
 use the included `bin/` scripts. For example:
 
-```sh
+```bash
 bin/start
 bin/test
 bin/stop
@@ -134,59 +103,65 @@ bin/stop
 
 ## I want to see the app under test. How can I do that?
 
-Open your browser and go to <http://hello.docker>. Easy!
+If you're using the default web app provided, then open your browser and go to
+<http://locahost:8080>.
 
-If you changed the value of `VIRTUAL_HOST` for the web service in your
-docker-compose.yml config, then you'll want to open that URL instead.
+If you're using your own web app, make sure to expose a port in your web app's
+Dockerfile. For example, if you have `EXPOSE 9887` in your web app's Dockerfile,
+then you can view it at <http://localhost:9887> .
 
 ## Can I view the Selenium grid console?
 
 Yep! After having started the Selenium hub and nodes (`$ npm start`), open a
-browser and go to <http://selenium.hub.docker>, then click the 'console' link.
+browser and go to <http://localhost:4444>, then click the 'console' link.
 
 ## A test is failing. How do I debug it?
 
-Start the Selenium hub, the app under test, and the Selenium *debug* browser
+Start the Selenium hub, the app under test, and the Selenium _debug_ browser
 nodes:
 
-```sh
+```bash
 $ npm run debug_start
+```
+
+or
+
+```bash
+bin/debug_start
 ```
 
 View the chrome debug node via VNC (password: `secret`):
 
-```sh
-$ open vnc://node.chrome.debug.docker
+```bash
+$ open vnc://localhost:5900
 ```
 
 View the firefox debug node via VNC (password: `secret`):
 
-```sh
-$ open vnc://node.firefox.debug.docker
+```bash
+$ open vnc://localhost:5901
 ```
 
-Next execute the Nightwatch tests against the debug nodes:
+Next execute the Nightwatch tests against the debug nodes and watch them run
+in the VNC window(s):
 
-```sh
+```bash
 $ npm run debug_test
 ```
 
-Again, if you don't want to install Node on your native machine, you may use the
-included `bin/` scripts:
+or
 
-```sh
-bin/debug_start
+```bash
 bin/debug_test
 ```
 
 ## Contributing
 
-We welcome and encourage contributions! See our [Contributing][contributing] doc
-for development instructions and more info.
+We welcome and encourage contributions! See our [Contributing] doc for
+development instructions and more info.
 
 [app]: https://github.com/mycargus/hello_docker_world
 [contributing]: https://github.com/mycargus/nightwatch-docker-grid/blob/master/CONTRIBUTING.md
-[dinghy]: https://github.com/codekitchen/dinghy
-[docker]: https://docs.docker.com/engine/installation/linux/
-[dory]: https://github.com/FreedomBen/dory
-[grid]: https://github.com/SeleniumHQ/selenium/wiki/Grid2
+[docker]: https://docs.docker.com/
+[docker for mac]: https://docs.docker.com/
+[selenium grid]: https://github.com/SeleniumHQ/docker-selenium

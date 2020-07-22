@@ -1,34 +1,34 @@
 {
-  "src_folders" : ["tests"],
-  "test_settings" : {
-    "default" : {
+  "src_folders": ["tests"],
+  "test_settings": {
+    "default": {
       "launch_url": "http://web",
-      "selenium_host"  : "hub",
+      "selenium_host": "hub",
       "desiredCapabilities": {
         "browserName": "chrome"
       },
-      "screenshots" : {
-        "enabled" : true,
-        "on_failure" : true,
-        "path" : "tests_output/screenshots"
+      "screenshots": {
+        "enabled": true,
+        "on_failure": true,
+        "path": "tests_output/screenshots"
       }
     },
-    "chrome" : {
+    "chrome": {
       "desiredCapabilities": {
         "browserName": "chrome"
       }
     },
-    "firefox" : {
+    "firefox": {
       "desiredCapabilities": {
         "browserName": "firefox"
       }
     },
-    "chrome-debug" : {
+    "chrome-debug": {
       "desiredCapabilities": {
         "browserName": "chrome"
       }
     },
-    "firefox-debug" : {
+    "firefox-debug": {
       "desiredCapabilities": {
         "browserName": "firefox"
       }

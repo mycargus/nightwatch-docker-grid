@@ -1,8 +1,7 @@
 ---
-version: '3.7'
+version: "3.7"
 
 services:
-
   hub:
     image: selenium/hub:3.0.1
     environment:
@@ -10,14 +9,13 @@ services:
       GRID_NEW_SESSION_WAIT_TIMEOUT: 8000
       GRID_NODE_POLLING: 300
       GRID_TIMEOUT: 120000
-      VIRTUAL_HOST: selenium.hub.docker
     ports:
       - "4444:4444"
     networks:
       - nightwatch-docker-grid-network
     logging: &LOG
       options:
-        max-file: '5'
+        max-file: "5"
         max-size: 1m
 
   nightwatch:
@@ -70,9 +68,7 @@ services:
     logging: *LOG
 
   web:
-    image: mycargus/hello_docker_world:latest
-    environment:
-      VIRTUAL_HOST: hello.docker
+    image: mycargus/hello_docker_world:master
     networks:
       - nightwatch-docker-grid-network
     logging: *LOG
