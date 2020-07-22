@@ -1,8 +1,7 @@
 ---
-version: '3.7'
+version: "3.7"
 
 services:
-
   nightwatch:
     volumes:
       - node-modules:/home/docker/app/node_modules/
