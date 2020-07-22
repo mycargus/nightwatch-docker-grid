@@ -16,14 +16,9 @@ Nightwatch serves as the testrunner. It is automatically provisioned in the
 `nightwatch` docker image, which you can easily customize in the included
 `nightwatch.json` file.
 
-## Dependencies (OSX)
+## Dependencies
 
-- a copy of this repo on your machine
-- [Docker for Mac]
-
-## Dependencies (Linux)
-
-- a copy of this repo on your machine
+- a clone of this repo on your machine
 - [Docker]
 
 ## Setup
@@ -56,11 +51,10 @@ Some folks have reported file permission issues with this workflow, so YMMV.
 
 ### Where do I add my app?
 
-By default this project will use [a bare-bones Sinatra web app][app]
-as the system under test (SUT). If you want to replace that default web app with
-your own, open the `docker-compose.yml` file, find the `web` service
-configuration, and replace `mycargus/hello_docker_world:master` with your app's
-docker image label.
+By default this project will use a bare-bones Sinatra web [app] as the system
+under test (SUT). If you want to replace that default web app with your own,
+open the `docker-compose.yml` file, find the `web` service configuration, and
+replace `mycargus/hello_docker_world:master` with your app's docker image label.
 
 For example:
 
@@ -108,7 +102,7 @@ If you're using the default web app provided, then open your browser and go to
 
 If you're using your own web app, make sure to expose a port in your web app's
 Dockerfile. For example, if you have `EXPOSE 9887` in your web app's Dockerfile,
-then you can view it at <http://localhost:9887> .
+then you can view it at <http://localhost:9887>.
 
 ## Can I view the Selenium grid console?
 
