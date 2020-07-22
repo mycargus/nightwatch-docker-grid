@@ -2,7 +2,7 @@
 
 ensure_running_from_root() {
   if [[ ! -d .git ]]; then
-    echo "$0: must be run from koala-tea root" 1>&2
+    echo "$0: must be run from nightwatch-docker-grid root" 1>&2
     exit 1
   fi
 }
