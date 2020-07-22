@@ -25,6 +25,7 @@ trap cleanup INT TERM EXIT
 
 project_root="$(dirname "$(git rev-parse --git-dir)")"
 
+npm ci
 npm run lint
 bash "$project_root"/lib/continuous_integration.bash lint_dockerfiles
 bash "$project_root"/lib/continuous_integration.bash lint_shell
