@@ -46,4 +46,5 @@ USER root
 # will force docker to rebuild the "npm install" layer above)
 COPY --chown=docker:docker . ./
 
+ENV NODE_ENV=test
 USER docker

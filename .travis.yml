@@ -19,4 +19,10 @@ before_install: ./scripts/ci/upgrade_docker_compose.sh
 
 install: true
 
-script: ./scripts/ci/build.sh
+jobs:
+  include:
+    - stage: lint, build, and test
+      script: ./scripts/ci/build.sh
+    - stage: publish docker image
+      # if: branch = master TODO: enable
+      script: ./scripts/ci/publish_docker_image.sh
