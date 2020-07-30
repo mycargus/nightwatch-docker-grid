@@ -127,20 +127,20 @@ bin/debug_start
 View the chrome debug node via VNC (password: `secret`):
 
 ```bash
-$ open vnc://localhost:5900
+open vnc://localhost:5900
 ```
 
 View the firefox debug node via VNC (password: `secret`):
 
 ```bash
-$ open vnc://localhost:5901
+open vnc://localhost:5901
 ```
 
 Next execute the Nightwatch tests against the debug nodes and watch them run
 in the VNC window(s):
 
 ```bash
-$ npm run debug_test
+npm run debug_test
 ```
 
 or
