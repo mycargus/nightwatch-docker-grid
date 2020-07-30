@@ -47,4 +47,7 @@ USER root
 COPY --chown=docker:docker . ./
 
 ENV NODE_ENV=test
+ENV TESTS_DIRECTORY=tests
+ENV PATH="${PATH}:${APP_DIR}/node_modules/nightwatch/bin"
+
 USER docker

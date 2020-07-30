@@ -14,7 +14,7 @@ completed the initial setup, you won't have to recall any docker commands.
 
 Nightwatch serves as the testrunner. It is automatically provisioned in the
 `nightwatch` docker image, which you can easily customize in the included
-`nightwatch.json` file.
+`nightwatch.conf.js` file.
 
 ## Dependencies
 
@@ -71,19 +71,19 @@ through the official Docker tutorial located on their website.
 Start the Selenium hub, the SUT, and the Selenium browser nodes:
 
 ```bash
-$ npm start
+npm start
 ```
 
 Execute the tests with Nightwatch:
 
 ```bash
-$ npm test
+npm test
 ```
 
 When you're done, stop and remove the docker containers:
 
 ```bash
-$ npm stop
+npm stop
 ```
 
 Alternatively, if you don't want to install Node on your native machine, you may
@@ -106,7 +106,7 @@ then you can view it at <http://localhost:9887>.
 
 ## Can I view the Selenium grid console?
 
-Yep! After having started the Selenium hub and nodes (`$ npm start`), open a
+Yep! After having started the Selenium hub and nodes (`npm start`), open a
 browser and go to <http://localhost:4444>, then click the 'console' link.
 
 ## A test is failing. How do I debug it?
@@ -115,7 +115,7 @@ Start the Selenium hub, the app under test, and the Selenium _debug_ browser
 nodes:
 
 ```bash
-$ npm run debug_start
+npm run debug_start
 ```
 
 or
