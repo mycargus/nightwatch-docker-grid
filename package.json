@@ -16,7 +16,7 @@
     "debug_start": "bin/debug_start",
     "debug_test": "bin/debug_test",
     "nightwatch": "nightwatch -e chrome,firefox",
-    "nightwatch-debug": "nightwatch -e chrome-debug,firefox-debug",
+    "nightwatch-debug": "nightwatch -e chromeDebug,firefoxDebug",
     "pretty": "prettier \"./**/*.+(yaml|yml|json|md)\"",
     "lint": "npm run pretty -- --check",
     "lint:fix": "npm run pretty -- --write",

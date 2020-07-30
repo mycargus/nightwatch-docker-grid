@@ -22,8 +22,6 @@ services:
     build:
       context: .
     command: ./scripts/run_nightwatch.sh
-    environment:
-      NODE_ENV: test
     networks:
       - nightwatch-docker-grid-network
     logging: *LOG

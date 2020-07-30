@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3
 
 USER root
 
@@ -45,5 +45,9 @@ USER root
 # makes for a faster development workflow because only a change to package*.json
 # will force docker to rebuild the "npm install" layer above)
 COPY --chown=docker:docker . ./
+
+ENV NODE_ENV=test
+ENV TESTS_DIRECTORY=tests
+ENV PATH="${PATH}:${APP_DIR}/node_modules/nightwatch/bin"
 
 USER docker

@@ -14,7 +14,7 @@ completed the initial setup, you won't have to recall any docker commands.
 
 Nightwatch serves as the testrunner. It is automatically provisioned in the
 `nightwatch` docker image, which you can easily customize in the included
-`nightwatch.json` file.
+`nightwatch.conf.js` file.
 
 ## Dependencies
 
@@ -71,19 +71,19 @@ through the official Docker tutorial located on their website.
 Start the Selenium hub, the SUT, and the Selenium browser nodes:
 
 ```bash
-$ npm start
+npm start
 ```
 
 Execute the tests with Nightwatch:
 
 ```bash
-$ npm test
+npm test
 ```
 
 When you're done, stop and remove the docker containers:
 
 ```bash
-$ npm stop
+npm stop
 ```
 
 Alternatively, if you don't want to install Node on your native machine, you may
@@ -106,7 +106,7 @@ then you can view it at <http://localhost:9887>.
 
 ## Can I view the Selenium grid console?
 
-Yep! After having started the Selenium hub and nodes (`$ npm start`), open a
+Yep! After having started the Selenium hub and nodes (`npm start`), open a
 browser and go to <http://localhost:4444>, then click the 'console' link.
 
 ## A test is failing. How do I debug it?
@@ -115,7 +115,7 @@ Start the Selenium hub, the app under test, and the Selenium _debug_ browser
 nodes:
 
 ```bash
-$ npm run debug_start
+npm run debug_start
 ```
 
 or
@@ -127,20 +127,20 @@ bin/debug_start
 View the chrome debug node via VNC (password: `secret`):
 
 ```bash
-$ open vnc://localhost:5900
+open vnc://localhost:5900
 ```
 
 View the firefox debug node via VNC (password: `secret`):
 
 ```bash
-$ open vnc://localhost:5901
+open vnc://localhost:5901
 ```
 
 Next execute the Nightwatch tests against the debug nodes and watch them run
 in the VNC window(s):
 
 ```bash
-$ npm run debug_test
+npm run debug_test
 ```
 
 or
@@ -148,6 +148,70 @@ or
 ```bash
 bin/debug_test
 ```
+
+## I want to use the Nightwatch docker container outside of this project
+
+We publish our image to Dockerhub. Here's an example of using it in a
+docker-compose config:
+
+```yaml
+# docker-compose.yml
+---
+version: "3.7"
+
+services:
+  nightwatch:
+    image: mycargus/nightwatch:master
+    command: nightwatch ui-tests/ -e chrome
+    volumes:
+      - ./:/home/docker/app/
+```
+
+Notice you can override the default container command with standard Nightwatch
+CLI commands, e.g. `nightwatch ui-tests/ -e chrome`.
+
+## My tests aren't stored in a tests/ directory. How do I specify a different one?
+
+If you're using our `mycargus/nightwatch` docker image, then you have two ways
+to tell Nightwatch where to find your tests.
+
+### Environment Variable
+
+You can provide a TESTS_DIRECTORY environment variable and value like so:
+
+```yaml
+# docker-compose.yml
+---
+version: "3.7"
+
+services:
+  nightwatch:
+    image: mycargus/nightwatch:master
+    environment:
+      TESTS_DIRECTORY: my_tests_directory/
+    volumes:
+      - ./:/home/docker/app/
+```
+
+Note you must mount your tests directory onto the container as shown above with
+the `volumes` configuration (or the `docker run --volume` or
+`docker-compose run --volume` CLI equivalents) in order for Nightwatch to find
+your custom tests directory. The container's default working directory is
+`/home/docker/app`, so as long as you mount your tests directory onto
+`/home/docker/app`, Nightwatch will be able to find them.
+
+### Nightwatch CLI
+
+You can override the default `tests` directory and any `TESTS_DIRECTORY` value
+by using the Nightwatch CLI inside the container:
+
+```bash
+docker run --rm --volume="./:/home/docker/app" mycargus/nightwatch:master \
+  nightwatch my_tests_directory/ -e chrome
+```
+
+Use `docker run --rm mycargus/nightwatch:master nightwatch --help` for more
+info.
 
 ## Contributing
 
