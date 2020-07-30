@@ -3,7 +3,7 @@
 set -e
 
 (echo "${DOCKER_PASSWORD}" | docker login --username="${DOCKER_USERNAME}" --password-stdin) || \
-  echo "Docker login failed!" && exit 1
+  (echo "Docker login failed!" && exit 1)
 
 # TODO: get from package-lock.json
 nightwatch_version=1.3.7
