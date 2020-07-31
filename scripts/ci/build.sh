@@ -2,23 +2,6 @@
 
 set -ev
 
-function cleanup()
-{
-  exit_code=$?
-
-  echo ":: Cleaning up"
-
-  docker-compose kill
-  docker-compose rm -fv
-
-  if [[ "${exit_code}" == "0" ]]; then
-    echo ":: It's working!"
-  else
-    echo ":: Build Failed :("
-  fi
-}
-trap cleanup INT TERM EXIT
-
 project_root="$(dirname "$(git rev-parse --git-dir)")"
 
 npm ci
@@ -33,8 +16,16 @@ docker-compose up -d node-chrome node-firefox hub web
 # wait for the selenium grid browser nodes to register with the selenium grid hub
 sleep 5
 
-docker-compose up nightwatch
+docker-compose run --rm nightwatch && echo $?
 
-# test with the published docker image
-docker-compose -f docker-compose.example.yml pull
-docker-compose -f docker-compose.yml -f docker-compose.example.yml up nightwatch
+exit_code=$?
+echo "Nightwatch container exited with: ${exit_code}"
+
+if [[ "${exit_code}" == "0" ]]; then
+  echo ":: It's working!"
+else
+  echo ":: Test Failed :("
+  exit_code=1
+fi
+
+exit ${exit_code}
