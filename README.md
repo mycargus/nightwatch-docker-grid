@@ -170,6 +170,13 @@ services:
 Notice you can override the default container command with standard Nightwatch
 CLI commands, e.g. `nightwatch ui-tests/ -e chrome`.
 
+You can see an example of this using our `docker-compose.example.yml` config:
+
+```bash
+bin/start
+bin/test_example
+```
+
 ## My tests aren't stored in a tests/ directory. How do I specify a different one?
 
 If you're using our `mycargus/nightwatch` docker image, then you have two ways

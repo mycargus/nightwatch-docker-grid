@@ -2,8 +2,8 @@
 
 # Starts nightwatch execution of all specs.
 #
-# See the 'nightwatch' service config in docker-compose.yml to see which script
-# the container runs.
+# See the 'nightwatch' service config in docker-compose.example.yml to see what
+# nightwatch command the container runs.
 
 container=nightwatch_grid_results
 
@@ -20,5 +20,7 @@ function cleanup() {
 
 trap cleanup INT TERM EXIT
 
-docker-compose run --name $container nightwatch
+docker-compose -f docker-compose.example.yml pull
 
+docker-compose -f docker-compose.yml -f docker-compose.example.yml run \
+  --name $container nightwatch

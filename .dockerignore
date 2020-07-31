@@ -10,6 +10,8 @@ docker-compose.*
 LICENSE.txt
 README.md
 
+bin/
+lib/
 node_modules/
 scripts/ci/
 tests_output/
