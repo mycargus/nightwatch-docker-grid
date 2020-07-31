@@ -1,0 +1,9 @@
+---
+version: "3.7"
+
+services:
+  nightwatch:
+    image: mycargus/nightwatch:master
+    command: nightwatch ui-tests/ -e chrome,firefox
+    volumes:
+      - ./:/home/docker/app/

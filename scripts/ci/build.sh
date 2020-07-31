@@ -2,8 +2,6 @@
 
 set -ev
 
-export COMPOSE_FILE=docker-compose.yml
-
 function cleanup()
 {
   exit_code=$?
@@ -19,9 +17,7 @@ function cleanup()
     echo ":: Build Failed :("
   fi
 }
-
 trap cleanup INT TERM EXIT
-
 
 project_root="$(dirname "$(git rev-parse --git-dir)")"
 
@@ -38,3 +34,7 @@ docker-compose up -d node-chrome node-firefox hub web
 sleep 5
 
 docker-compose up nightwatch
+
+# test with the published docker image
+docker-compose -f docker-compose.example.yml pull
+docker-compose -f docker-compose.yml -f docker-compose.example.yml up nightwatch
