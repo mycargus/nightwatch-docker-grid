@@ -3,8 +3,8 @@
 # A Dockerized Selenium Grid with Nightwatch
 
 I built this project to quickly provision a dockerized environment for running
-UI tests against a dockerized app. It employs a dockerized [Selenium Grid]
-which yields a far more cost-effective CI solution compared to purchasing and
+UI tests against a dockerized app. It employs a dockerized [Selenium Grid] which
+yields a far more cost-effective CI solution compared to purchasing and
 maintaining dedicated machines.
 
 This project is geared toward a Node.js audience, meaning I've included `npm`
@@ -136,8 +136,8 @@ View the firefox debug node via VNC (password: `secret`):
 open vnc://localhost:5901
 ```
 
-Next execute the Nightwatch tests against the debug nodes and watch them run
-in the VNC window(s):
+Next execute the Nightwatch tests against the debug nodes and watch them run in
+the VNC window(s):
 
 ```bash
 npm run debug_test
@@ -157,7 +157,7 @@ docker-compose config:
 ```yaml
 # docker-compose.yml
 ---
-version: "3.7"
+version: '3.7'
 
 services:
   nightwatch:
@@ -189,7 +189,7 @@ You can provide a TESTS_DIRECTORY environment variable and value like so:
 ```yaml
 # docker-compose.yml
 ---
-version: "3.7"
+version: '3.7'
 
 services:
   nightwatch:
@@ -226,7 +226,8 @@ We welcome and encourage contributions! See our [Contributing] doc for
 development instructions and more info.
 
 [app]: https://github.com/mycargus/hello_docker_world
-[contributing]: https://github.com/mycargus/nightwatch-docker-grid/blob/master/CONTRIBUTING.md
+[contributing]:
+  https://github.com/mycargus/nightwatch-docker-grid/blob/master/CONTRIBUTING.md
 [docker]: https://docs.docker.com/
 [docker for mac]: https://docs.docker.com/
 [selenium grid]: https://github.com/SeleniumHQ/docker-selenium
