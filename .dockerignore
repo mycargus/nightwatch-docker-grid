@@ -7,8 +7,6 @@
 
 Dockerfile
 docker-compose.*
-LICENSE.txt
-README.md
 
 bin/
 node_modules/

@@ -16,8 +16,6 @@
     "prettier": "^2.0.5"
   },
   "scripts": {
-    "debug_start": "bin/debug_start",
-    "debug_test": "bin/debug_test",
     "pretty": "prettier --ignore-path ./.gitignore \"*.+(yaml|yml|js|json|md)\"",
     "format": "npm run pretty -- --write",
     "format:check": "npm run pretty -- --list-different",
@@ -26,8 +24,10 @@
     "nightwatch": "nightwatch -e chrome,firefox",
     "nightwatch-debug": "nightwatch -e chromeDebug,firefoxDebug",
     "start": "bin/start",
+    "start:debug": "bin/start-debug",
     "stop": "bin/stop",
-    "test": "bin/test"
+    "test": "bin/test",
+    "test:debug": "bin/test-debug"
   },
   "repository": {
     "type": "git",
