@@ -18,9 +18,9 @@
   "scripts": {
     "debug_start": "bin/debug_start",
     "debug_test": "bin/debug_test",
-    "prettier": "prettier --ignore-path ./.gitignore \"./**/*.+(yaml|yml|js|json|md)\"",
-    "format": "npm run prettier -- --write",
-    "format:check": "npm run prettier -- --list-different",
+    "pretty": "prettier --ignore-path ./.gitignore \"*.+(yaml|yml|js|json|md)\"",
+    "format": "npm run pretty -- --write",
+    "format:check": "npm run pretty -- --list-different",
     "lint": "npm run lint:dockerfile && npm run format:check",
     "lint:dockerfile": "dockerfilelint Dockerfile",
     "nightwatch": "nightwatch -e chrome,firefox",
@@ -45,5 +45,14 @@
   "bugs": {
     "url": "https://github.com/mycargus/nightwatch-docker-grid/issues"
   },
-  "homepage": "https://github.com/mycargus/nightwatch-docker-grid#readme"
+  "homepage": "https://github.com/mycargus/nightwatch-docker-grid#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "Dockerfile": "npm run lint:dockerfile",
+    "*.{yaml|yml|js|json|md}": "npm run format"
+  }
 }

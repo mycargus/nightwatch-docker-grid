@@ -1,8 +1,0 @@
-{
-  "./Dockerfile": [
-    "npm run lint:dockerfile"
-  ],
-  "./**/*.+(yaml|yml|js|json|md)": [
-    "npm run format"
-  ]
-}
