@@ -21,8 +21,14 @@ install: true
 
 jobs:
   include:
-    - stage: lint, build, and test
-      script: ./scripts/ci/build.sh
+    - stage: lint, pull, build
+      script: 'npm ci && npm run lint'
+    - stage: lint, pull, build
+      script: 'docker-compose build --pull'
+    - stage: lint, pull, build
+      script: 'docker-compose pull'
+    - stage: test
+      script: ./scripts/ci/test.sh
 
 deploy:
   provider: script

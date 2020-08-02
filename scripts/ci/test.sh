@@ -2,11 +2,6 @@
 
 set -ev
 
-npm ci
-npm run lint
-
-docker-compose pull
-docker-compose build --pull
 docker-compose up -d node-chrome node-firefox hub web
 
 # wait for the selenium grid browser nodes to register with the selenium grid hub
