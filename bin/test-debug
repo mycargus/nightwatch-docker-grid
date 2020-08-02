@@ -2,6 +2,8 @@
 
 # Useful for debugging failing tests
 
+set -e
+
 container=nightwatch_grid_results
 
 function cleanup() {

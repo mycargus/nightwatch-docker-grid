@@ -2,4 +2,6 @@
 
 # kills and removes docker containers
 
+set -e
+
 docker-compose kill && docker-compose rm -vf
