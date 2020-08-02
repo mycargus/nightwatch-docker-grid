@@ -3,6 +3,11 @@
 # Starts the app under test, the Selenium hub, and the Selenium *debug* browser
 # nodes.
 
+set -e
+
 ./bin/stop
 
 docker-compose up -d web hub node-chrome-debug node-firefox-debug
+
+# wait for the selenium grid browser nodes to register with the selenium grid hub
+sleep 5

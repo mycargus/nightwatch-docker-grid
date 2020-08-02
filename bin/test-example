@@ -5,6 +5,8 @@
 # See the 'nightwatch' service config in docker-compose.example.yml to see what
 # nightwatch command the container runs.
 
+set -e
+
 container=nightwatch_grid_results
 
 function cleanup() {
