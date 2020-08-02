@@ -13,7 +13,7 @@ function cleanup() {
   docker cp $container:/home/docker/app/tests_output .
   docker rm -fv $container > /dev/null
 
-  if [[ "$exit_code" == "1" ]]; then
+  if [[ "$exit_code" != "0" ]]; then
     printf "\n Test failure! View screenshots in tests_output/screenshots. \n"
   fi
 }
