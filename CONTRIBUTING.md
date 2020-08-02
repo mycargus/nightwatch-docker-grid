@@ -15,5 +15,5 @@ npm run lint
 If you get any lint errors, try
 
 ```bash
-npm run lint:fix
+npm run format
 ```

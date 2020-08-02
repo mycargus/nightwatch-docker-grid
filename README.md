@@ -115,13 +115,13 @@ Start the Selenium hub, the app under test, and the Selenium _debug_ browser
 nodes:
 
 ```bash
-npm run debug_start
+npm run start:debug
 ```
 
 or
 
 ```bash
-bin/debug_start
+bin/start-debug
 ```
 
 View the chrome debug node via VNC (password: `secret`):
@@ -140,13 +140,13 @@ Next execute the Nightwatch tests against the debug nodes and watch them run in
 the VNC window(s):
 
 ```bash
-npm run debug_test
+npm run test:debug
 ```
 
 or
 
 ```bash
-bin/debug_test
+bin/test-debug
 ```
 
 ## I want to use the Nightwatch docker container outside of this project
@@ -174,7 +174,7 @@ You can see an example of this using our `docker-compose.example.yml` config:
 
 ```bash
 bin/start
-bin/test_example
+bin/test-example
 ```
 
 ## My tests aren't stored in a tests/ directory. How do I specify a different one?
