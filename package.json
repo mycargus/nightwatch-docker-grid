@@ -11,17 +11,20 @@
   },
   "devDependencies": {
     "dockerfilelint": "^1.5.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5"
   },
   "scripts": {
     "debug_start": "bin/debug_start",
     "debug_test": "bin/debug_test",
+    "prettier": "prettier --ignore-path ./.gitignore \"./**/*.+(yaml|yml|js|json|md)\"",
+    "format": "npm run prettier -- --write",
+    "format:check": "npm run prettier -- --list-different",
+    "lint": "npm run lint:dockerfile && npm run format:check",
+    "lint:dockerfile": "dockerfilelint Dockerfile",
     "nightwatch": "nightwatch -e chrome,firefox",
     "nightwatch-debug": "nightwatch -e chromeDebug,firefoxDebug",
-    "pretty": "prettier \"./**/*.+(yaml|yml|json|md)\"",
-    "lint": "npm run lint:dockerfile && npm run pretty -- --check",
-    "lint:dockerfile": "dockerfilelint Dockerfile",
-    "lint:fix": "npm run pretty -- --write",
     "start": "bin/start",
     "stop": "bin/stop",
     "test": "bin/test"
