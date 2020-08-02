@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [ -n "$DEBUG" ] ; then
-    npm run nightwatch-debug
+if [ "x$DEBUG" == "x" ] ; then
+  npm run nightwatch
 else
-    npm run nightwatch
+  npm run nightwatch-debug
 fi

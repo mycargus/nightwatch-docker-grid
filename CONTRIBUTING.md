@@ -1,15 +1,14 @@
 # Contributing
 
-First install the git hooks. This will save you some pull-request headaches. :)
+First install development dependencies:
 
 ```bash
-./scripts/install-hooks.sh
+npm ci
 ```
 
 We use `prettier` to format most of our files.
 
 ```bash
-npm ci
 npm run lint
 ```
 
