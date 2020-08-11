@@ -10,7 +10,7 @@
     "nightwatch": "^1.3.7"
   },
   "devDependencies": {
-    "dockerfilelint": "^1.5.0",
+    "dockerfilelint": "^1.8.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5"
