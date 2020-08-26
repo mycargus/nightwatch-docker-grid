@@ -13,7 +13,7 @@
     "dockerfilelint": "^1.8.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
+    "prettier": "^2.1.1"
   },
   "scripts": {
     "pretty": "prettier --ignore-path ./.gitignore \"*.+(yaml|yml|js|json|md)\"",
