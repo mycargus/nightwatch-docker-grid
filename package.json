@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "nightwatch": "^1.4.2"
+    "nightwatch": "^1.4.3"
   },
   "devDependencies": {
     "dockerfilelint": "^1.8.0",
