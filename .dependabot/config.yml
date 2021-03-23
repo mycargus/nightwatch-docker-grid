@@ -1,7 +1,14 @@
 ---
-version: 1
-
-update_configs:
-  - package_manager: 'javascript'
-    directory: './'
-    update_schedule: 'daily'
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+    # Prefix all commit messages with "npm"
+    prefix: "npm"
+    # Specify labels for npm pull requests
+    labels:
+      - "npm"
+      - "dependencies"
