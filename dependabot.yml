@@ -1,16 +1,16 @@
 ---
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "monthly"
+      interval: 'monthly'
     commit-message:
     # Prefix all commit messages with "npm"
-    prefix: "npm"
+    prefix: 'npm'
     # Specify labels for npm pull requests
     labels:
-      - "npm"
-      - "dependencies"
+      - 'npm'
+      - 'dependencies'
     # Set to 0 to disable version updates
     open-pull-requests-limit: 2
