@@ -15,6 +15,10 @@ addons:
 env:
   - DOCKER_COMPOSE_VERSION=1.25.5
 
+branches:
+  only:
+  - master
+
 before_install: ./scripts/ci/upgrade_docker_compose.sh
 
 install: true
