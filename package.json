@@ -23,11 +23,13 @@
     "lint:dockerfile": "dockerfilelint Dockerfile",
     "nightwatch": "nightwatch -e chrome,firefox",
     "nightwatch-debug": "nightwatch -e chromeDebug,firefoxDebug",
+    "postinstall": "husky install",
     "start": "bin/start",
     "start:debug": "bin/start-debug",
     "stop": "bin/stop",
     "test": "bin/test",
-    "test:debug": "bin/test-debug"
+    "test:debug": "bin/test-debug",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -46,11 +48,6 @@
     "url": "https://github.com/mycargus/nightwatch-docker-grid/issues"
   },
   "homepage": "https://github.com/mycargus/nightwatch-docker-grid#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "Dockerfile": "npm run lint:dockerfile",
     "*.{yaml|yml|js|json|md}": "npm run format"

@@ -3,7 +3,7 @@
 set -ev
 
 npm ci
-npm run lint
+npm run lint || echo "Something failed the linter! Run 'npm run format:check' to find out what it was."
 
 docker-compose pull
 docker-compose build --pull nightwatch
