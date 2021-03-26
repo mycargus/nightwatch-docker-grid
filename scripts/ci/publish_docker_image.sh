@@ -6,7 +6,7 @@ set -ev
   (echo "Docker login failed!" && exit 1)
 
 # TODO: get from package-lock.json
-nightwatch_version=1.5.1
+nightwatch_version=1.6.0
 
 docker build --pull . \
   --tag "${DOCKER_USERNAME}"/nightwatch:master \
