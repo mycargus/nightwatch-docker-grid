@@ -13,9 +13,9 @@ RUN apk --no-cache add bash ${TEMPORARY_DEPENDENCIES}
 RUN groupadd -r docker && useradd --no-log-init -r -g docker docker
 RUN chown -R docker $HOME
 
-RUN apk --no-cache add \
-    nodejs-current \
-    nodejs-current-npm \
+RUN apk --no-cache add --update \
+    nodejs=14.17.1-r0 \
+    npm \
     # clean up obsolete files
     && rm -rf /tmp/* /root/.npm
 
